@@ -35,7 +35,8 @@ stages:
 - stage: Build
   jobs:
   - job: BuildJob
-    pool:  Default # Update this if using dedicated build pool
+    pool: 
+        vmImage: windows-latest # Update this if using dedicated build pool
     workspace:
       clean: all
     steps:
@@ -59,7 +60,8 @@ stages:
   condition: and(succeeded('Build'), startsWith(variables['Build.SourceBranchName'], 'development'))  # Only run if the packaging succeeded and we are on a development* branch.
   jobs:
   - job: DeployToTestJob
-    pool: Default  # Update this if using dedicated build pool
+    pool: 
+        vmImage: windows-latest # Update this if using dedicated build pool
     workspace:
       clean: all
     steps:
@@ -77,7 +79,8 @@ stages:
   displayName: Create Assests
   jobs:
     - job: CreateAssests
-      pool: Default  # Update this if using dedicated build pool
+    pool: 
+        vmImage: windows-latest # Update this if using dedicated build pool
       steps:
       - task: UiPathAssets@2
         inputs:
@@ -92,7 +95,8 @@ stages:
   condition: succeeded()
   jobs:
     - job: TestDEV
-      pool: Default
+    pool: 
+        vmImage: windows-latest # Update this if using dedicated build pool
       steps:
         - task: UiPathTest@2
           inputs:
