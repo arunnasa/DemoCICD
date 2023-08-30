@@ -78,7 +78,7 @@ stages:
 - stage: Assest
   displayName: Create Assests
   jobs:
-    - job: CreateAssests
+  - job: CreateAssests
     pool: 
         vmImage: windows-latest # Update this if using dedicated build pool
       steps:
