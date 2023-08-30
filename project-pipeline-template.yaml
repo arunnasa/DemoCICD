@@ -94,7 +94,7 @@ stages:
   dependsOn: DeployToTest
   condition: succeeded()
   jobs:
-    - job: TestDEV
+  - job: TestDEV
     pool: 
         vmImage: windows-latest # Update this if using dedicated build pool
     steps:
