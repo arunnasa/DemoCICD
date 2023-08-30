@@ -81,7 +81,7 @@ stages:
   - job: CreateAssests
     pool: 
         vmImage: windows-latest # Update this if using dedicated build pool
-      steps:
+    steps:
       - task: UiPathAssets@2
         inputs:
           orchestratorConnection: UiPathOrchCICD
@@ -97,7 +97,7 @@ stages:
     - job: TestDEV
     pool: 
         vmImage: windows-latest # Update this if using dedicated build pool
-      steps:
+    steps:
         - task: UiPathTest@2
           inputs:
             testTarget: 'TestSet'
