@@ -83,7 +83,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,64" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="wrote one line" />
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,64" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="wrote second line" />
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Demo Ready&quot;]" />
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Azure Pipelines With Service With Changes Connectors. Example..&quot;]" />
           <Assign sap:VirtualizedContainerService.HintSize="434,85.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
