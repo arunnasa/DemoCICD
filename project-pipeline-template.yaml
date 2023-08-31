@@ -15,6 +15,10 @@ parameters:
 - name: 'folderName'
   default: 'Default'
   type: string
+  # The name of the Prod folder to deploy the package to.
+- name: 'folderNameprod'
+  default: 'Prod'
+  type: string
 # Either AutoVersion to generate a build number or CurrentVersion to match the project.json version.
 - name: 'versioningStrategy'
   default: 'CurrentVersion'
@@ -110,7 +114,7 @@ stages:
 # Deploy to the Prod environment on commits to the master branch.
 # Will require approvals as defined by the environment in Azure Devops.
 - stage: DeployToProd
-  condition: and(succeeded('Build'), eq(variables['Build.SourceBranchName'], 'master'))
+  condition: and(succeeded('Build'), eq(variables['Build.SourceBranchName'], 'main'))
   jobs:
   - deployment: DeployToProdJob
     pool:  # Update this if using dedicated build pool
@@ -129,5 +133,5 @@ stages:
             inputs:
               orchestratorConnection: UiPathOrchCICD  # Update this to a service connection for your Prod Orchestrator.
               packagesPath: '$(Pipeline.Workspace)\drop'
-              folderName: ${{ parameters.folderName }}
+              folderName: ${{ parameters.folderNameprod }}
               environments: ${{ parameters.environments }}
